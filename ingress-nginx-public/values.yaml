@@ -1,0 +1,57 @@
+nameOverride: ingress-nginx-public
+controller:
+  ingressClassByName: true
+  kind: Deployment
+  replicaCount: 1
+  allowSnippetAnnotations: true
+  # extraArgs:
+  #   default-ssl-certificate: "kube-system/cert-wildcard-livahealthcare-com"
+
+  config:
+    use-proxy-protocol: "true"
+  podAnnotations:
+    linkerd.io/inject: false
+
+  # # Ensures ingress-nginx is only deployed to static nodes with label 'node-type': 'static' (non karpenter spot)
+  # affinity:
+  #   nodeAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: node-type
+  #           operator: In
+  #           values:
+  #           - static
+
+  ingressClassResource:
+    name: nginx-public
+    enabled: true
+    default: false
+    controllerValue: "k8s.io/ingress-nginx-public"
+
+  metrics:
+    port: 10254
+    portName: metrics
+    # if this port is changed, change healthz-port: in extraArgs: accordingly
+    enabled: true
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
+      # -- Labels to be added to the metrics service resource
+      labels: {}
+      # clusterIP: ""
+
+  service:
+    external:
+      enabled: true
+    internal:
+      enabled: false
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: "external"
+      service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
+      service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+      service.beta.kubernetes.io/aws-load-balancer-name: "ingress-nginx-public"
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "tcp"
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+      service.beta.kubernetes.io/aws-load-balancer-target-group-attributes: proxy_protocol_v2.enabled=true
