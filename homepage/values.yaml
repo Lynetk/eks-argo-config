@@ -25,5 +25,5 @@ config:
             href: https://grafana.jppol.click
             description: Metrics and logs
         - Start:
-            href: https://start.jppol.click
-            description: This page
+            href: https://prometheus.jppol.click
+            description: Test - needs auth and exposed only internally if at all
