@@ -1,13 +1,8 @@
 crds:
   enabled: true
-
-    # - name: crds.enabled
-    #   value: "true"
-    # - name: dnsPolicy
-    #   value: "None"
-    # - name: podDnsConfig.nameservers[0]
-    #   value: "1.1.1.1"
-    # - name: podDnsConfig.nameservers[1]
-    #   value: "8.8.8.8"
-    # - name: dns01RecursiveNameservers
-    #   value: "1.1.1.1:53,8.8.8.8:53"
+dnsPolicy: "None"
+podDnsConfig:
+  nameservers:
+    - "1.1.1.1"
+    - "8.8.8.8"
+dns01RecursiveNameservers: "1.1.1.1:53,8.8.8.8:53"
