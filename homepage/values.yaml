@@ -1,0 +1,26 @@
+image:
+  tag: v0.9.9
+ingress:
+  main:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt"
+    ingressClassName: nginx-public
+    hosts:
+      - host: start.jppol.click
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - start.jppol.click
+        secretName: start-jppol-click
+config:
+  services:
+    - IDP:
+        - ArgoCD:
+            href: https://argocd.jppol.click
+            description: GitOPS
+        - Grafana:
+            href: https://grafana.jppol.click
+            description: Metrics and logs
