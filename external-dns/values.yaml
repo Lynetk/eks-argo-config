@@ -1,0 +1,17 @@
+provider:
+  name: aws
+env:
+  - name: AWS_DEFAULT_REGION
+    value: eu-north-1
+serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::970547334392:role/ExternalDNSRole"
+# -- Log level.
+logLevel: info
+
+# -- Log format.
+logFormat: json
+
+# -- Interval for DNS updates.
+interval: 1m
