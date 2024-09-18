@@ -24,3 +24,6 @@ config:
         - Grafana:
             href: https://grafana.jppol.click
             description: Metrics and logs
+        - Start:
+            href: https://start.jppol.click
+            description: This page
