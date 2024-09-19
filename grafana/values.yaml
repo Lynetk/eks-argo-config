@@ -1,0 +1,68 @@
+admin:
+  existingSecret: "grafana-admin-credentials"
+  userKey: admin-user
+  passwordKey: admin-password
+persistence:
+  type: pvc
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+ingress:
+  enabled: true
+  ingressClassName: nginx-public
+  # Values can be templated
+  annotations:
+    kubernetes.io/ingress.class: nginx-public
+    cert-manager.io/cluster-issuer: letsencrypt
+  labels: {}
+  path: /
+  pathType: Prefix
+  hosts:
+    - grafana.jppol.click
+
+  tls:
+    - secretName: grafana-jppol-click-secret
+      hosts:
+        - grafana.jppol.click
+        - grafana1.jppol.click
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-server
+        access: proxy
+        isDefault: true
+      - name: Loki
+        type: loki
+        url: http://grafana-loki-gateway
+        access: proxy
+        isDefault: false
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: "default"
+        orgId: 1
+        folder: ""
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/default
+dashboards:
+  default:
+    node-exporter:
+      gnetId: 1860
+      revision: 37
+      datasource: Prometheus
+    ingress-nginx:
+      gnetId: 21336
+      revision: 1
+      datasource: Prometheus
+    prometheus-stats:
+      gnetId: 2
+      revision: 2
+      datasource: Prometheus

@@ -14,6 +14,7 @@ ingress:
     tls:
       - hosts:
           - start.jppol.click
+          - start1.jppol.click
         secretName: start-jppol-click
 config:
   services:
