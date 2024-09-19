@@ -11,3 +11,4 @@ server:
       - secretName: prometheus-jppol-click-secret
         hosts:
           - prometheus.jppol.click
+          - prometheus1.jppol.click
