@@ -66,3 +66,7 @@ dashboards:
       gnetId: 2
       revision: 2
       datasource: Prometheus
+    karpenter-capacity:
+      url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-capacity-dashboard.json
+    karpenter-performance:
+      url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-performance-dashboard.json
