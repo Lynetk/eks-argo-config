@@ -23,7 +23,7 @@ ingress:
   enabled: true
 
   # -- IngressClass that will be used to implement the Ingress (Kubernetes 1.18+)
-  className: "nginx"
+  className: "nginx-public"
 
   # -- Additional annotations for the Ingress resource.
   annotations:
