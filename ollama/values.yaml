@@ -1,0 +1,46 @@
+replicaCount: 1
+
+ollama:
+  gpu:
+    # -- Enable GPU integration
+    enabled: false
+
+    # -- GPU type: 'nvidia' or 'amd'
+    # If 'ollama.gpu.enabled', default value is nvidia
+    # If set to 'amd', this will add 'rocm' suffix to image tag if 'image.tag' is not override
+    # This is due cause AMD and CPU/CUDA are different images
+    type: "nvidia"
+
+    # -- Specify the number of GPU
+    # If you use MIG section below then this parameter is ignored
+    number: 1
+
+    # -- only for nvidia cards; change to (example) 'nvidia.com/mig-1g.10gb' to use MIG slice
+    nvidiaResource: "nvidia.com/gpu"
+  models: []
+ingress:
+  # -- Enable ingress controller resource
+  enabled: true
+
+  # -- IngressClass that will be used to implement the Ingress (Kubernetes 1.18+)
+  className: "nginx"
+
+  # -- Additional annotations for the Ingress resource.
+  annotations:
+    {}
+    # kubernetes.io/ingress.class: traefik
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+
+  # The list of hostnames to be covered with this ingress record.
+  hosts:
+    - host: ollama.jppol.click
+      paths:
+        - path: /
+          pathType: Prefix
+
+  # --  The tls configuration for hostnames to be covered with this ingress record.
+  tls:
+    - hosts:
+        - ollama.jppol.click
+      secretName: ollama-jppol-click
