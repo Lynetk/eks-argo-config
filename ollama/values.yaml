@@ -27,7 +27,7 @@ ingress:
 
   # -- Additional annotations for the Ingress resource.
   annotations:
-    {}
+    cert-manager.io/cluster-issuer: letsencrypt
     # kubernetes.io/ingress.class: traefik
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
