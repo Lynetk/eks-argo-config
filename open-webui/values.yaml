@@ -61,7 +61,7 @@ ingress:
   # nginx.ingress.kubernetes.io/rewrite-target: /
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-  host: "open-webui.jppol.click"
+  host: "open-webui1.jppol.click"
   tls: true
   existingSecret: "open-webui"
 persistence:
