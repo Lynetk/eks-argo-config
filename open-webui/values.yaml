@@ -23,7 +23,8 @@ ollama:
 
       # -- only for nvidia cards; change to (example) 'nvidia.com/mig-1g.10gb' to use MIG slice
       nvidiaResource: "nvidia.com/gpu"
-    models: []
+    models:
+      - llama3.1:8b
 
 pipelines:
   # -- Automatically install Pipelines chart to extend Open WebUI functionality using Pipelines: https://github.com/open-webui/pipelines
