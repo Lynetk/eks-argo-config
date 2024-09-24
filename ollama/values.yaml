@@ -3,7 +3,7 @@ replicaCount: 1
 ollama:
   gpu:
     # -- Enable GPU integration
-    enabled: false
+    enabled: true
 
     # -- GPU type: 'nvidia' or 'amd'
     # If 'ollama.gpu.enabled', default value is nvidia
