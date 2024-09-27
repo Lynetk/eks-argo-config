@@ -6,3 +6,7 @@ podDnsConfig:
     - "1.1.1.1"
     - "8.8.8.8"
 dns01RecursiveNameservers: "1.1.1.1:53,8.8.8.8:53"
+config:
+  logging:
+    verbosity: 2
+    format: json
