@@ -73,3 +73,4 @@ dashboards:
 grafana.ini:
   server: 
     domain: https://grafana.jppol.click
+    root_url: https://grafana.jppol.click
