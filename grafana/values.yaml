@@ -70,7 +70,11 @@ dashboards:
       url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-capacity-dashboard.json
     karpenter-performance:
       url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-performance-dashboard.json
+
+  
 grafana.ini:
+  security:
+    allow_embedding: true
   server: 
     domain: grafana.jppol.click
     root_url: https://grafana.jppol.click
