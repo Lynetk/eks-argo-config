@@ -70,3 +70,5 @@ dashboards:
       url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-capacity-dashboard.json
     karpenter-performance:
       url: https://karpenter.sh/preview/getting-started/getting-started-with-karpenter/karpenter-performance-dashboard.json
+grafana.ini:
+  server: https://grafana.jppol.click
