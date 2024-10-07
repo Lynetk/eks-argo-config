@@ -34,9 +34,9 @@ global:
       username: ""
       password: ""
       database: ""
-      existingSecret: "postgres"
+      existingSecret: postgres
       secretKeys:
-        adminPasswordKey: "postgres_password"
+        adminPasswordKey: postgres_password
         userPasswordKey: ""
         replicationPasswordKey: ""
     ## @param global.postgresql.service.ports.postgresql PostgreSQL service port (overrides `service.ports.postgresql`)
