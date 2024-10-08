@@ -11,13 +11,13 @@ auth:
   postgresPassword: ""
   ## @param auth.username Name for a custom user to create
   ##
-  username: ""
+  username: "backstage"
   ## @param auth.password Password for the custom user to create. Ignored if `auth.existingSecret` is provided
   ##
   password: ""
   ## @param auth.database Name for a custom database to create
   ##
-  database: ""
+  database: "backstage"
   ## @param auth.replicationUsername Name of the replication user
   ##
   replicationUsername: repl_user
@@ -33,5 +33,5 @@ auth:
   ##
   secretKeys:
     adminPasswordKey: postgres-password
-    userPasswordKey: password
+    userPasswordKey: backstage-user-password
     replicationPasswordKey: replication-password
