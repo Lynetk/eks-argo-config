@@ -1,6 +1,6 @@
 kubecostToken: "bHluZXRrQGdtYWlsLmNvbQ==xm343yadf98"
 persistentVolume:
-  enabled: false
+  enabled: true
 prometheus:
   server:
     persistentVolume:
