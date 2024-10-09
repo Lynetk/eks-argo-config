@@ -4,4 +4,4 @@ persistentVolume:
 prometheus:
   server:
     persistentVolume:
-      enabled: false
+      enabled: true
