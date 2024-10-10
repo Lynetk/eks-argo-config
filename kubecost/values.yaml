@@ -20,6 +20,9 @@ ingress:
         - kubecost.jppol.click
       secretName: kubecost-tls
 
+kubecostProductConfigs:
+  currencyCode: DKK
+
 kubecostFrontend:
   image: public.ecr.aws/kubecost/frontend
 
