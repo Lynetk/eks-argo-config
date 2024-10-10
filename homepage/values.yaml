@@ -14,7 +14,6 @@ ingress:
     tls:
       - hosts:
           - start.jppol.click
-          - start1.jppol.click
         secretName: start-jppol-click
 config:
   services:
@@ -25,6 +24,9 @@ config:
         - Grafana:
             href: https://grafana.jppol.click
             description: Metrics and logs
+        - Kubecost:
+            href: https://kubecost.jppol.click
+            description: Cluster cost explorer
         - Start:
             href: https://prometheus.jppol.click
             description: Test - needs auth and exposed only internally if at all
