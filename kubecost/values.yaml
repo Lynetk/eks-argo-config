@@ -20,7 +20,35 @@ ingress:
         - kubecost.jppol.click
       secretName: kubecost-tls
 
+kubecostFrontend:
+  image: public.ecr.aws/kubecost/frontend
+
+kubecostModel:
+  image: public.ecr.aws/kubecost/cost-model
+
+forecasting:
+  fullImageName: public.ecr.aws/kubecost/kubecost-modeling:v0.1.16
+
+networkCosts:
+  image:
+    repository: public.ecr.aws/kubecost/kubecost-network-costs
+    tag: v0.17.6
+
+clusterController:
+  image:
+    repository: public.ecr.aws/kubecost/cluster-controller
+
 prometheus:
   server:
+    image:
+      repository: public.ecr.aws/kubecost/prometheus
     persistentVolume:
       enabled: true
+
+  configmapReload:
+    prometheus:
+      image:
+        repository: public.ecr.aws/kubecost/prometheus-config-reloader
+
+reporting:
+  productAnalytics: false
