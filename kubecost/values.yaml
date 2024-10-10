@@ -23,6 +23,10 @@ ingress:
 kubecostProductConfigs:
   currencyCode: USD
 
+kubecostMetrics: # Needed by backstage-kubecost plugin
+  emitPodAnnotations: true
+  emitNamespaceAnnotations: true
+
 kubecostFrontend:
   image: public.ecr.aws/kubecost/frontend
 
