@@ -21,7 +21,7 @@ ingress:
       secretName: kubecost-tls
 
 kubecostProductConfigs:
-  currencyCode: DKK
+  currencyCode: USD
 
 kubecostFrontend:
   image: public.ecr.aws/kubecost/frontend
