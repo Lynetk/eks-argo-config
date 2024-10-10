@@ -1,7 +1,21 @@
 kubecostToken: "bHluZXRrQGdtYWlsLmNvbQ==xm343yadf98"
 persistentVolume:
   enabled: true
+
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  className: nginx-public
+  enabled: true
+  hosts:
+  - kubecost.jppol.click
+  tls:
+  - hosts:
+    - kubecost.jppol.click
+    secretName: kubecost-tls
+
 prometheus:
   server:
     persistentVolume:
       enabled: true
+
