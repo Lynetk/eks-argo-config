@@ -9,9 +9,9 @@ loki:
       cache_location: /loki/index_cache
       cache_ttl: 24h # Can be increased for faster performance over longer query periods, uses more disk space
   storage:
+    bucketNames: jppol-idp-eks-001-grafana-loki
     s3:
       s3: s3://eu-north-1
-      bucketnames: [jppol-idp-eks-001-grafana-loki]
       region: eu-north-1
   schemaConfig:
     configs:
