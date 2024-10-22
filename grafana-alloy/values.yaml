@@ -93,3 +93,5 @@ alloy:
 
         forward_to = [loki.write.loki.receiver]
       }
+controller:
+  priorityClassName: "system-node-critical"
