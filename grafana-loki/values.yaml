@@ -45,12 +45,21 @@ serviceAccount:
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/LokiStorage-eks-001
 
+  compactor:
+    # working_directory: /data/retention
+    working_directory: /var/loki/compactor
+    compaction_interval: 10m
+    retention_enabled: true
+    retention_delete_delay: 2h
+    retention_delete_worker_count: 150
+    delete_request_store: s3
+
 deploymentMode: SimpleScalable
 
 backend:
-  replicas: 2
+  replicas: 1
 read:
-  replicas: 2
+  replicas: 1
 write:
   replicas: 2
 
