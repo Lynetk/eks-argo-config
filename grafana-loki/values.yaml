@@ -8,9 +8,11 @@ loki:
       active_index_directory: /loki/index
       cache_location: /loki/index_cache
       cache_ttl: 24h # Can be increased for faster performance over longer query periods, uses more disk space
-    aws:
+  storage:
+    s3:
       s3: s3://eu-north-1
       bucketnames: jppol-idp-eks-001-grafana-loki
+      region: eu-north-1
   schemaConfig:
     configs:
       - from: 2024-04-01
@@ -31,14 +33,11 @@ chunksCache:
   enabled: true
   allocatedMemory: 1024
 
-#gateway:
-#  ingress:
-#    enabled: true
-#    hosts:
-#      - host: FIXME
-#        paths:
-#          - path: /
-#            pathType: Prefix
+serviceAccount:
+  create: true
+  name: loki
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/jppol-idp-eks-001-grafana-loki
 
 deploymentMode: SimpleScalable
 
