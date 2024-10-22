@@ -35,15 +35,6 @@ loki:
   querier:
     # Default is 4, if you have enough memory and CPU you can increase, reduce if OOMing
     max_concurrent: 4
-chunksCache:
-  enabled: true
-  allocatedMemory: 1024
-
-serviceAccount:
-  create: true
-  name: loki
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/LokiStorage-eks-001
 
   compactor:
     # working_directory: /data/retention
@@ -53,6 +44,16 @@ serviceAccount:
     retention_delete_delay: 2h
     retention_delete_worker_count: 150
     delete_request_store: s3
+
+chunksCache:
+  enabled: true
+  allocatedMemory: 1024
+
+serviceAccount:
+  create: true
+  name: loki
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/LokiStorage-eks-001
 
 deploymentMode: SimpleScalable
 
