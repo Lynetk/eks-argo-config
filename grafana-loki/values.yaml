@@ -40,7 +40,7 @@ serviceAccount:
   create: true
   name: loki
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/jppol-idp-eks-001-grafana-loki
+    eks.amazonaws.com/role-arn: arn:aws:iam::970547334392:role/LokiStorage-eks-001
 
 deploymentMode: SimpleScalable
 
