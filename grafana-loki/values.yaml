@@ -1,3 +1,6 @@
+global:
+  priorityClassName: system-cluster-critical
+
 loki:
   auth_enabled: false
   schemaConfig:
