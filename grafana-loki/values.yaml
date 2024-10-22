@@ -4,9 +4,13 @@ global:
 loki:
   auth_enabled: false
   storage_config:
-  aws:
-    s3: s3://eu-north-1
-    bucketnames: jppol-idp-eks-001-grafana-loki
+    tsdb_shipper:
+      active_index_directory: /loki/index
+      cache_location: /loki/index_cache
+      cache_ttl: 24h # Can be increased for faster performance over longer query periods, uses more disk space
+    aws:
+      s3: s3://eu-north-1
+      bucketnames: jppol-idp-eks-001-grafana-loki
   schemaConfig:
     configs:
       - from: 2024-04-01
