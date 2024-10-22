@@ -20,17 +20,17 @@ loki:
     aws:
       s3: s3://eu-north-1/jppol-idp-eks-001-grafana-loki
 
-  storage:
-    type: s3
-    bucketNames:
-      chunks: jppol-idp-eks-001-grafana-loki
-      ruler: jppol-idp-eks-001-grafana-loki
-      admin: jppol-idp-eks-001-grafana-loki
-    s3:
-      s3: null
-      region: eu-north-1
-      s3ForcePathStyle: false
-      insecure: false
+  # storage:
+  #   type: s3
+  #   bucketNames:
+  #     chunks: jppol-idp-eks-001-grafana-loki
+  #     ruler: jppol-idp-eks-001-grafana-loki
+  #     admin: jppol-idp-eks-001-grafana-loki
+  #   s3:
+  #     s3: null
+  #     region: eu-north-1
+  #     s3ForcePathStyle: false
+  #     insecure: false
 
   ingester:
     chunk_encoding: snappy
