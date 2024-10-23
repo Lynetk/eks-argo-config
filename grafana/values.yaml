@@ -73,7 +73,7 @@ dashboards:
 
 envValueFrom:
   GF_AUTH_GITHUB_CLIENT_SECRET:
-    secretRef:
+    secretKeyRef:
       name: grafana-github-client-secret
       key: client-secret
 
